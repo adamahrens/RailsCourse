@@ -8,10 +8,13 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+`2.7.2`
 
 * System dependencies
 
 * Configuration
+
+`yarn add bootstrap jquery popper.js`. Then update `config/webpack/environment.js`
 
 * Database creation
 

@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Course</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">RailsCourse</h1>
+            <p class="lead">A Udemy knockoff with Rails, yarn, webpack, puma, postgres</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+        <%= yield %>
+    </div>
+</body>
+
 </html>

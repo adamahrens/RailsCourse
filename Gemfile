@@ -4,7 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 
 gem 'annotate', '~> 3.1', '>= 3.1.1'
+gem 'better_errors'
+gem 'binding_of_caller'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.7'
 gem 'ordinare', '~> 0.4.0'
 gem 'pg', '~> 1.1'
@@ -14,8 +17,7 @@ gem 'sass-rails', '>= 6'
 gem 'solargraph', '~> 0.40.1'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
-gem 'better_errors'
-gem 'binding_of_caller'
+gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
