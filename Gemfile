@@ -8,16 +8,17 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'font-awesome-rails'
+gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'jbuilder', '~> 2.7'
 gem 'ordinare', '~> 0.4.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.0'
 gem 'sass-rails', '>= 6'
+gem 'simple_form', '~> 5.0', '>= 5.0.3'
 gem 'solargraph', '~> 0.40.1'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
-gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

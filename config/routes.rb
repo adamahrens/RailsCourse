@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tracks
   root 'pages#landing'
   get 'privacy', to: 'pages#privacy'
   get 'about', to: 'pages#about'
