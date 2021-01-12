@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :tracks
   root 'pages#landing'
   get 'privacy', to: 'pages#privacy'

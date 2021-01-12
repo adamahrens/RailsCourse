@@ -7,6 +7,8 @@ gem 'annotate', '~> 3.1', '>= 3.1.1'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'faker', '~> 2.15', '>= 2.15.1'
 gem 'font-awesome-rails'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'jbuilder', '~> 2.7'
