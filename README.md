@@ -18,6 +18,8 @@ Things you may want to cover:
 
 * Database creation
 
+`rails g migration AddUserToTracks user:references`
+
 * Database initialization
 
 * How to run the test suite

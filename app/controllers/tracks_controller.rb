@@ -1,10 +1,19 @@
 class TracksController < ApplicationController
   before_action :set_track, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create]
+
+  layout 'courses'
 
   # GET /tracks
   # GET /tracks.json
   def index
-    @tracks = Track.all
+    if params[:course]
+      @searched = params[:course]
+      @tracks = Track.where("title ILIKE ?", "%#{params[:course]}%")
+      logger.debug @tracks
+    else 
+      @tracks = Track.all
+    end
   end
 
   # GET /tracks/1

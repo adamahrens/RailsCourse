@@ -3,4 +3,6 @@ class Track < ApplicationRecord
     validates :description, presence: true
 
     has_rich_text :description
+
+    belongs_to :user
 end

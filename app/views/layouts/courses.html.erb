@@ -16,13 +16,6 @@
     <%= render 'partials/navigation' %>
     <div class="container mt-2 app">
         <%= render 'partials/alerts' %>
-        <div class="jumbotron">
-            <h1 class="display-4">RailsCourse</h1>
-            <p class="lead">A Udemy knockoff with Rails, yarn, webpack, puma, postgres</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <%= link_to "New Course", new_track_path, class: 'btn btn-primary btn-lg' %>
-        </div>
         <%= yield %>
     </div>
     <%= render 'partials/footer' %>

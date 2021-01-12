@@ -1,10 +1,13 @@
-%h1 Listing tracks
+
+- if @searched
+  %h1 Searched for #{@searched}
 
 %table.table
   %thead
     %tr
       %th Title
       %th Description
+      %th Teacher
       %th
       %th
       %th
@@ -14,6 +17,7 @@
       %tr
         %td= track.title
         %td= track.description
+        %td= track.user.email
         %td= link_to 'Show', track, class: 'btn btn-primary'
         %td= link_to 'Edit', edit_track_path(track), class: 'btn btn-primary'
         %td= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

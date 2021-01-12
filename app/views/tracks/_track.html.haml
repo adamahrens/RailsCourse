@@ -1,0 +1,12 @@
+%div.card.mb-5
+    %div.card-header
+        = fa_icon 'school'
+        = link_to "#{track.title}", track
+    %div.card-body #{track.description}
+    %div.card-footer.text-muted 
+        %p 
+            = fa_icon 'clock'
+            #{track.created_at}
+        %p 
+            = fa_icon 'inbox'
+            #{track.user.email}

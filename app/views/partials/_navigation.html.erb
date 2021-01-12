@@ -27,7 +27,18 @@
                     <span>Privacy</span>
                     <% end %>
                 </li>
-
+                <li class="nav-item">
+                    <%= link_to tracks_path, class: 'nav-link active text-light' do %>
+                    <%= fa_icon 'school' %>
+                    <span>Courses</span>
+                    <% end %>
+                </li>
+                <li class="nav-item">
+                    <%= form_with url: search_path, local: true, class: 'form-inline my-2 my-lg-0' do |f| %>
+                    <%= f.text_field :course, placeholder: 'Search courses' %>
+                    <%= f.submit 'Search' %>
+                    <% end %>
+                </li>
             </ul>
 
             <ul class="navbar-nav mr-right">

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  root 'pages#landing'
+
   devise_for :users
   resources :tracks
-  root 'pages#landing'
+  
   get 'privacy', to: 'pages#privacy'
   get 'about', to: 'pages#about'
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  post 'search', to: 'tracks#index'
 end

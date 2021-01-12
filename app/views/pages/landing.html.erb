@@ -1,2 +1,11 @@
-<h1>Landing</h1>
-<p>Find me in app/views/pages/landing.html.erb</p>
+<h2>Popular Courses</h2>
+<%= render partial: 'tracks/track', collection: @popular %>
+<hr />
+
+<h2>Top Rated Courses</h2>
+<%= render partial: 'tracks/track', collection: @top %>
+<hr />
+
+<h2>Most Recent Courses</h2>
+<%= render partial: 'tracks/track', collection: @recent %>
+<hr />
