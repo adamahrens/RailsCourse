@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'faker', '~> 2.15', '>= 2.15.1'
 gem 'font-awesome-rails'
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'jbuilder', '~> 2.7'
 gem 'ordinare', '~> 0.4.0'
