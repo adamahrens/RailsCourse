@@ -4,6 +4,10 @@
 #
 #  id          :bigint           not null, primary key
 #  description :text
+#  language    :string           default("English"), not null
+#  level       :string           default("Beginner"), not null
+#  price       :integer          default(0), not null
+#  short       :text
 #  slug        :string
 #  title       :string
 #  created_at  :datetime         not null

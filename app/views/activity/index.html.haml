@@ -1,0 +1,10 @@
+%h1 Activites
+- @activities.each do |a|
+    .row
+        = a.id
+        = a.trackable_type
+        = a.trackable_id
+        = a.key
+        = a.parameters
+        - if a.owner
+            = a.owner.username

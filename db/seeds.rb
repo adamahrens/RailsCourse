@@ -7,5 +7,11 @@ end
 
 # Create 20 random courses
 20.times do 
-    Track.create!(title: Faker::Educator.course_name, description: "<p>#{Faker::Movies::Ghostbusters.quote}</p>", user: users.sample)
+    Track.create!(title: Faker::Educator.course_name,
+            description: "<p>#{Faker::Movies::Ghostbusters.quote}</p>", 
+            short: Faker::ChuckNorris.fact,
+            price: Faker::Commerce.price.to_i,
+            level: ['Beginner', 'Intermediate', 'Advanced'].sample,
+            language: Faker::Nation.language,
+            user: users.sample)
 end

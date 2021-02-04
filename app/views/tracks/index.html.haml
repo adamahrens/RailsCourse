@@ -1,23 +1,47 @@
-
 - if @searched
   %h1 Searched for #{@searched}
-
-%table.table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th Teacher
-      %th
-      %th
-      %th
-
-  %tbody
-    - @tracks.each do |track|
-      %tr
-        %td= track.title
-        %td= track.description
-        %td= track.user.email
-        %td= link_to 'Show', track, class: 'btn btn-primary'
-        %td= link_to 'Edit', edit_track_path(track), class: 'btn btn-primary'
-        %td= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+%div.row
+  .col-md-2
+    = search_form_for @q do |form|
+      %div.form-group
+        = form.label :title
+        = form.search_field :title_cont
+      %div.form-group
+        = form.label :description
+        = form.search_field :description_cont
+      %div.form-group
+        = form.label :level
+        = form.search_field :level_cont
+      %div.form-group
+        = form.label :language
+        = form.search_field :language_cont
+      %div.form-group
+        = form.label :teacher
+        = form.search_field :user_email_cont
+      %div.form-group
+        = form.button :submit, class: 'btn btn-primary mt-3'
+  .col-md-10
+    %table.table
+      %thead
+        %tr
+          %th= sort_link(@q, :title)
+          %th= sort_link(@q, :description)
+          %th Teacher
+          %th= sort_link(@q, :level)
+          %th= sort_link(@q, :language)
+          %th= sort_link(@q, :price)
+          %th
+          %th
+          %th
+      %tbody
+        - @tracks.each do |track|
+          %tr
+            %td= track.title
+            %td= track.description
+            %td= track.user.email
+            %td= track.level
+            %td= track.language
+            %td= number_to_currency(track.price)
+            %td= link_to 'Show', track, class: 'btn btn-primary'
+            %td= link_to 'Edit', edit_track_path(track), class: 'btn btn-primary'
+            %td= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

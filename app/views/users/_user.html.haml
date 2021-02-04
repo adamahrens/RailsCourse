@@ -9,3 +9,5 @@
     %div.card-footer.text-muted 
         %p 
             = time_ago_in_words(user.created_at)
+        %p 
+            = user.current_sign_in_ip

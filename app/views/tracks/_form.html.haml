@@ -5,4 +5,8 @@
 
   = f.input :title
   = f.rich_text_area :description
+  = f.input :short
+  = f.input :language, collection: @languages
+  = f.input :level, collection: @levels
+  = f.input :price
   = f.button :submit, class: 'btn btn-primary mt-3'

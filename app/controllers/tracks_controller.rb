@@ -8,11 +8,13 @@ class TracksController < ApplicationController
   # GET /tracks.json
   def index
     if params[:course]
-      @searched = params[:course]
-      @tracks = Track.where("title ILIKE ?", "%#{params[:course]}%")
-      logger.debug @tracks
+      # @searched = params[:course]
+      # @tracks = Track.where("title ILIKE ?", "%#{params[:course]}%")
+      @q = Track.ransack(params[:course])
+      @tracks = @q.result(distinct: true)
     else 
-      @tracks = Track.all
+      @q = Track.ransack(params[:q])
+      @tracks = @q.result(distinct: true)
     end
   end
 
@@ -24,6 +26,8 @@ class TracksController < ApplicationController
   # GET /tracks/new
   def new
     @track = Track.new
+    @levels = ['Beginner', 'Intermediate', 'Advanced']
+    @languages = ['English', 'Russian', 'Spanish', 'German']
   end
 
   # GET /tracks/1/edit
@@ -34,6 +38,7 @@ class TracksController < ApplicationController
   # POST /tracks.json
   def create
     @track = Track.new(track_params)
+    @track.user = current_user
 
     respond_to do |format|
       if @track.save
@@ -78,6 +83,6 @@ class TracksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def track_params
-      params.require(:track).permit(:title, :description)
+      params.require(:track).permit(:title, :description, :short, :language, :level, :price)
     end
 end

@@ -3,6 +3,18 @@
         = fa_icon 'school'
         = link_to "#{track.title}", track
     %div.card-body #{track.description}
+    %div.card-body 
+        %h5
+            = track.short
+    %div.card-footer
+        %span.track-detail
+            = fa_icon 'language' 
+            = track.language
+        %span.track-detail
+            = fa_icon 'signal'
+            = track.level
+        %span.track-detail
+            = number_to_currency(track.price)
     %div.card-footer.text-muted 
         %p 
             = fa_icon 'clock'

@@ -1,4 +1,18 @@
 // Place all the styles related to the Tracks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-@import 'bootstrap/scss/bootstrap'
+@import 'bootstrap/scss/bootstrap';
+
+input.is-valid {
+    background-image: none;
+}
+
+input.is-invalid {
+    background-image: none;
+}
+
+.track-detail {
+    font-size: medium;
+    font-weight: 400;
+    margin-left: 0.5rem;
+}
