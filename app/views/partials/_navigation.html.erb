@@ -45,17 +45,19 @@
                     <span>Courses</span>
                     <% end %>
                 </li>
+                <% unless @ransack_courses.nil? %>
                 <li class="nav-item">
                     <%= search_form_for @ransack_courses, url: tracks_path, local: true, class: 'form-inline my-2 my-lg-0' do |f| %>
                     <%= f.search_field :title_cont, placeholder: 'Search courses', class: 'form-control' %>
                     <%= f.submit 'Search', class: 'btn btn-outline-success ml-2 my-2 my-sm-0' %>
                     <% end %>
                 </li>
+                <% end %>
             </ul>
 
             <ul class="navbar-nav mr-right">
                 <% if user_signed_in? %>
-                <%= link_to "Account Settings", edit_user_registration_path, class: 'nav-link active text-light' %>
+                <%= link_to "Account Settings #{current_user.email}", edit_user_registration_path, class: 'nav-link active text-light' %>
                 <%= link_to "Sign Out", destroy_user_session_path, class: 'nav-link active text-light',  method: :delete %>
                 <% else %>
                 <%= link_to "Log In", new_user_session_path, class: 'nav-link active text-light' %>

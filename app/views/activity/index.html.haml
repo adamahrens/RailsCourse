@@ -6,5 +6,6 @@
         = a.trackable_id
         = a.key
         = a.parameters
+        = time_ago_in_words(a.created_at)
         - if a.owner
             = a.owner.username

@@ -1,0 +1,8 @@
+%h1
+    = "Editing #{@user.email}"
+    
+= simple_form_for @user do |f|
+    = f.collection_check_boxes :role_ids, @rolls, :id, :name
+    = f.error :roles, class: 'text-danger'
+    %hr
+    = f.submit 'Update', class: 'btn btn-primary'

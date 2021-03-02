@@ -1,11 +1,16 @@
 %div.card.mb-5
     %div.card-header
         = fa_icon 'user'
-        = "#{user.email}"
+        = link_to user.email, user
     %div.card-body 
         %p Courses #{user.tracks.count}
         %ul.list-group.list-group-flush
             = render partial: 'users/track', collection: user.tracks
+    - unless user.roles.empty?
+        %div.card-footer
+            - user.roles.each do |role|
+                %span.badge.badge-pill.badge-primary
+                    = role.name
     %div.card-footer.text-muted 
         %p 
             = time_ago_in_words(user.created_at)

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :tracks
-  resources :users , only: [:index]
+  resources :users , only: [:index, :edit, :update, :show]
   
   get 'privacy', to: 'pages#privacy'
   get 'activity',  to: 'activity#index'

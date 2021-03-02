@@ -42,6 +42,8 @@
             %td= track.level
             %td= track.language
             %td= number_to_currency(track.price)
-            %td= link_to 'Show', track, class: 'btn btn-primary'
-            %td= link_to 'Edit', edit_track_path(track), class: 'btn btn-primary'
-            %td= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+            %td= link_to 'Show', track, class: 'btn btn-primary' 
+            - if policy(track).edit?
+              %td= link_to 'Edit', edit_track_path(track), class: 'btn btn-primary'
+            - if policy(track).destroy?
+              %td= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' if policy(track).destroy?

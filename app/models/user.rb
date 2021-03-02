@@ -24,6 +24,7 @@
 #  index_users_on_slug                  (slug) UNIQUE
 #
 class User < ApplicationRecord
+  rolify
   extend FriendlyId
   include PublicActivity::Model
   tracked
@@ -38,7 +39,22 @@ class User < ApplicationRecord
 
   friendly_id :email, use: :slugged
 
+  after_create :assign_default_role
+
+  validate :has_roles, on: :update
+
+  def assign_default_role
+    self.add_role(:student) if self.roles.blank?
+    self.add_role(:teacher)
+  end
+
   def username
     email
+  end
+
+  def has_roles
+    if roles.blank?
+      errors.add(:roles, 'Must contain at least 1 role')
+    end
   end
 end

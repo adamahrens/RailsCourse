@@ -26,18 +26,21 @@ class TracksController < ApplicationController
   # GET /tracks/new
   def new
     @track = Track.new
+    authorize @track
     @levels = ['Beginner', 'Intermediate', 'Advanced']
     @languages = ['English', 'Russian', 'Spanish', 'German']
   end
 
   # GET /tracks/1/edit
   def edit
+    authorize @track
   end
 
   # POST /tracks
   # POST /tracks.json
   def create
     @track = Track.new(track_params)
+    authorize @track
     @track.user = current_user
 
     respond_to do |format|
@@ -54,6 +57,7 @@ class TracksController < ApplicationController
   # PATCH/PUT /tracks/1
   # PATCH/PUT /tracks/1.json
   def update
+    authorize @track
     respond_to do |format|
       if @track.update(track_params)
         format.html { redirect_to @track, notice: 'Track was successfully updated.' }
@@ -68,6 +72,7 @@ class TracksController < ApplicationController
   # DELETE /tracks/1
   # DELETE /tracks/1.json
   def destroy
+    authorize @track
     @track.destroy
     respond_to do |format|
       format.html { redirect_to tracks_url, notice: 'Track was successfully destroyed.' }

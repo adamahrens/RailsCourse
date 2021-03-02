@@ -1,0 +1,20 @@
+%div.card.mb-5
+    %div.card-header
+        = fa_icon 'user'
+        = link_to "#{@user.email}", edit_user_path(@user)
+    %div.card-body 
+        %p Courses #{@user.tracks.count}
+        %ul.list-group.list-group-flush
+            = render partial: 'users/track', collection: @user.tracks
+    - unless @user.roles.empty?
+        %div.card-footer
+            - @user.roles.each do |role|
+                %span.badge.badge-pill.badge-primary
+                    = role.name
+    %div.card-footer.text-muted 
+        %p 
+            = time_ago_in_words(@user.created_at)
+        %p 
+            = @user.current_sign_in_ip
+        %p
+            = link_to 'Edit Roles', edit_user_path(@user), class: 'btn btn-primary'

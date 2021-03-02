@@ -9,4 +9,5 @@
   %b Description:
   = @track.description
 
-= link_to 'Edit', edit_track_path(@track)
+- if policy(@track).edit?
+  = link_to 'Edit', edit_track_path(@track)
